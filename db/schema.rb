@@ -16,8 +16,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_204044) do
     t.string "state", null: false
     t.string "country_code", null: false
     t.string "postal_code", null: false
-    t.decimal "latitude", precision: 8, scale: 2, null: false
-    t.decimal "longitude", precision: 8, scale: 2, null: false
+    t.decimal "latitude", precision: 7, scale: 4, null: false
+    t.decimal "longitude", precision: 7, scale: 4, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["postal_code"], name: "index_addresses_on_postal_code"

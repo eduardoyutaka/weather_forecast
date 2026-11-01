@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   root "weather_forecasts#index"
   get "/search", to: "addresses#search"
   resources :addresses, only: [:show]
+  resources :weather_forecasts do
+    collection do
+      get :current
+    end
+  end
 end

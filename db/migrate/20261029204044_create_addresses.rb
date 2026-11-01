@@ -5,8 +5,8 @@ class CreateAddresses < ActiveRecord::Migration[8.1]
       t.string :state, null: false
       t.string :country_code, null: false
       t.string :postal_code, null: false, index: true
-      t.decimal :latitude, precision: 8, scale: 2, null: false
-      t.decimal :longitude, precision: 8, scale: 2, null: false
+      t.decimal :latitude, precision: 7, scale: 4, null: false
+      t.decimal :longitude, precision: 7, scale: 4, null: false
 
       t.timestamps
     end
