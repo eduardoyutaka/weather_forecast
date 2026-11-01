@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "weather_forecasts#index"
+  get "/search", to: "addresses#search"
+  resources :addresses, only: [:show]
 end

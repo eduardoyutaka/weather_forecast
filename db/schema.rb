@@ -12,13 +12,14 @@
 
 ActiveRecord::Schema[8.1].define(version: 2026_10_29_204044) do
   create_table "addresses", force: :cascade do |t|
-    t.string "city"
-    t.string "state"
-    t.string "country_code"
-    t.string "post_code"
-    t.decimal "latitude", precision: 8, scale: 2
-    t.decimal "longitude", precision: 8, scale: 2
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "country_code", null: false
+    t.string "postal_code", null: false
+    t.decimal "latitude", precision: 8, scale: 2, null: false
+    t.decimal "longitude", precision: 8, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["postal_code"], name: "index_addresses_on_postal_code"
   end
 end
