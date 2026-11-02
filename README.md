@@ -18,13 +18,15 @@ For more details on the installation process check the [Install Ruby on Rails Gu
 This project follows uses the latest Ruby and Ruby on Rails versions and follow the latest community conventions.
 Below are listed some of these conventions, as well as other architectural decisions:
 
+- Forecasts are grouped by the `Address` model, which has a one-to-one relationship with postal code
+- `addresses.postal_code` has an index to increase lookup speed in the databse
 - SQLite as primary read-write database and cache store
 - RESTful endpoints, such as `/addresses` and `/weather_data`
 - Avoid using external libraries for simplicity (use of `Net::HTTP` instead of `HTTParty` or `Faraday`
 - API keys stored in credentials file for security
 - Use of Turbo Frames to display weather forecast in the Address page
 - Use of native Rails cache solution
-- Logging error for troubleshooting and displaying useful error messages to the user
+- Logging and handling errors for troubleshooting and displaying useful error messages to the user
 
 ## Future improvements
 
@@ -33,9 +35,10 @@ Due to time constraints, some requirements, such as the functional ones, had to 
 - Display future weather forecast to the user, not prioritized due to API billing costs
 - Allow the user to search addresses outside the US
 - Handle multiple address lookup and weather forecast APIs to increase project availability
-- Add an abstraction layer for the Address and WeatherData models to adapt the core domain models to any third party providers
+- Add an abstraction layer for the `Address` and `WeatherData` models to adapt the core domain models to any third party providers
 - Visual improvements such as styling and displaying loading indicators to the user
 - Automated tests to catch development errors before the project reaches the users
+- Consider creating service objects to encapsulate logic such as thirs-party API connections
 
 ## Installation and Setup
 
