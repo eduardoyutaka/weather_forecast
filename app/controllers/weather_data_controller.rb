@@ -1,6 +1,6 @@
 require "net/http"
 
-class WeatherForecastsController < ApplicationController
+class WeatherDataController < ApplicationController
   def index
   end
 
