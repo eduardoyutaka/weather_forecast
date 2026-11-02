@@ -30,10 +30,24 @@ $ cd weather_forecast
 3. Install dependencies:
 
 ```bash
-$ gem install
+$ bundle install
 ```
 
-4. Start the application:
+4. Run migrations:
+
+```bash
+$ bin/rails db:migrate
+```
+
+5. Create a `config/master.key` file:
+
+```bash
+$ echo "09fee242a17a0fb1e950d42b596e2dd5" > config/master.key
+```
+
+Note: this project is **not ready for production** as the `master.key` is shared in plain text
+
+6. Start the application:
 
 ```bash
 $ bin/dev
