@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "weather_data#index"
+  root "weather_datum#index"
   get "/search", to: "addresses#search"
   resources :addresses, only: [:show]
-  resources :weather_data do
+  resources :weather_datum do
     collection do
       get :current
     end

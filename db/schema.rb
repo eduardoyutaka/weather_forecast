@@ -24,10 +24,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_01_035211) do
   end
 
   create_table "weather_data", force: :cascade do |t|
-    t.decimal "temperature"
-    t.decimal "minimum_temperature"
-    t.decimal "maximum_temperature"
+    t.decimal "temperature", null: false
+    t.decimal "minimum_temperature", null: false
+    t.decimal "maximum_temperature", null: false
+    t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_weather_data_on_address_id"
   end
 end

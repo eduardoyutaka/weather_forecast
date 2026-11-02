@@ -3,7 +3,6 @@ require "net/http"
 class AddressesController < ApplicationController
   def search
     @address = Address.find_by(postal_code: params[:postal_code])
-    p "DEBUG", @address
     if @address.present?
         p "DEBUG: FOUND"
         redirect_to @address
