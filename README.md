@@ -13,6 +13,30 @@ Given an address, retrieve, cache and display weather forecast data to the user.
 
 For more details on the installation process check the [Install Ruby on Rails Guide](https://guides.rubyonrails.org/install_ruby_on_rails.html)
 
+## Architecture
+
+This project follows uses the latest Ruby and Ruby on Rails versions and follow the latest community conventions.
+Below are listed some of these conventions, as well as other architectural decisions:
+
+- SQLite as primary read-write database and cache store
+- RESTful endpoints, such as `/addresses` and `/weather_data`
+- Avoid using external libraries for simplicity (use of `Net::HTTP` instead of `HTTParty` or `Faraday`
+- API keys stored in credentials file for security
+- Use of Turbo Frames to display weather forecast in the Address page
+- Use of native Rails cache solution
+- Logging error for troubleshooting and displaying useful error messages to the user
+
+## Future improvements
+
+Due to time constraints, some requirements, such as the functional ones, had to be prioritized. Here are some concerns to be taken into consideration as next steps:
+
+- Display future weather forecast to the user, not prioritized due to API billing costs
+- Allow the user to search addresses outside the US
+- Handle multiple address lookup and weather forecast APIs to increase project availability
+- Add an abstraction layer for the Address and WeatherData models to adapt the core domain models to any third party providers
+- Visual improvements such as styling and displaying loading indicators to the user
+- Automated tests to catch development errors before the project reaches the users
+
 ## Installation and Setup
 
 1. Clone the repository:
