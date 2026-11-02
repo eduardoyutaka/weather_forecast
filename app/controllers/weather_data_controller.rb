@@ -3,6 +3,8 @@ require "net/http"
 class WeatherDataController < ApplicationController
   before_action :get_address, only: :current
 
+  BASE_URI = "https://api.openweathermap.org/data/2.5/weather"
+
   def index
   end
 
@@ -20,7 +22,13 @@ class WeatherDataController < ApplicationController
   def current_weather_datum
     Rails.cache.fetch("#{cache_key}/current", expires_in: 30.minutes) do
       @pulled_from_cache = false
-      uri = URI("https://api.openweathermap.org/data/2.5/weather?lat=#{@address.latitude}&lon=#{@address.longitude}&appid=#{Rails.application.credentials.open_weather_map.api_key}")
+      uri = URI(BASE_URI)
+      query_params = {
+        :lat => @address.latitude,
+        :lon => @address.longitude,
+        :appid => Rails.application.credentials.open_weather_map.api_key
+      }.to_query
+      uri.query = query_params
       response = Net::HTTP.get_response(uri)
       case response
       when Net::HTTPSuccess

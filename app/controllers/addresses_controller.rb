@@ -1,12 +1,14 @@
 require "net/http"
 
 class AddressesController < ApplicationController
+  BASE_URI = "https://api.zippopotam.us/us/"
+
   def search
     @address = Address.find_by(postal_code: params[:postal_code])
     if @address.present?
         redirect_to @address
     else
-      uri = URI("https://api.zippopotam.us/us/#{params[:postal_code]}")
+      uri = URI(BASE_URI + params[:postal_code])
       response = Net::HTTP.get_response(uri)
       case response
       when Net::HTTPSuccess
@@ -22,7 +24,7 @@ class AddressesController < ApplicationController
         @address.save!
         redirect_to @address
       else
-        flash[:alert] = "Address not found"
+        flash[:alert] = "Address not found for postal code: #{params[:postal_code]}"
         redirect_to root_path
       end
     end
