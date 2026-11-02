@@ -19,6 +19,7 @@ This project follows uses the latest Ruby and Ruby on Rails versions and follow 
 Below are listed some of these conventions, as well as other architectural decisions:
 
 - Forecasts are grouped by the `Address` model, which has a one-to-one relationship with postal code
+- Both `Address` and `WeatherDatum` are stored in the DB to avoid extra lookups in external APIs
 - `addresses.postal_code` has an index to increase lookup speed in the databse
 - SQLite as primary read-write database and cache store
 - RESTful endpoints, such as `/addresses` and `/weather_data`
@@ -26,6 +27,7 @@ Below are listed some of these conventions, as well as other architectural decis
 - API keys stored in credentials file for security
 - Use of Turbo Frames to display weather forecast in the Address page
 - Use of native Rails cache solution
+- `WeatherData` is cached but database records are created each time data is pulled from the API
 - Logging and handling errors for troubleshooting and displaying useful error messages to the user
 
 ## Future improvements
