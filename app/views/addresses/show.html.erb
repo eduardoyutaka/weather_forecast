@@ -1,26 +1,31 @@
 <h1>Address</h1>
-<p>
-  <strong>City:</strong>
-  <%= @address.city %>
-</p>
-<p>
-  <strong>State:</strong>
-  <%= @address.state %>
-</p>
-<p>
-  <strong>Country Code:</strong>
-  <%= @address.country_code %>
-</p>
-<p>
-  <strong>Postal Code:</strong>
-  <%= @address.postal_code %>
-</p>
-<p>
-  <strong>Latitude:</strong>
-  <%= @address.latitude %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @address.longitude %>
-</p>
+<div style="display: flex; gap: 36px;">
+  <div>
+    <p>
+      <strong>City:</strong>
+      <%= @address.city %>
+    </p>
+    <p>
+      <strong>State:</strong>
+      <%= @address.state %>
+    </p>
+    <p>
+      <strong>Country Code:</strong>
+      <%= @address.country_code %>
+    </p>
+    <p>
+      <strong>Postal Code:</strong>
+      <%= @address.postal_code %>
+    </p>
+    <p>
+      <strong>Latitude:</strong>
+      <%= @address.latitude %>
+    </p>
+    <p>
+      <strong>Longitude:</strong>
+      <%= @address.longitude %>
+    </p>
+  </div>
+  <%= turbo_frame_tag @address, src: current_weather_data_path(address_id: @address.id) %>
+</div>
 <%= link_to "Back to search", root_path %>

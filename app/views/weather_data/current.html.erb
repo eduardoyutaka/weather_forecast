@@ -1,1 +1,27 @@
-<h1>Current</h1>
+<h1>Weather Datum</h1>
+<%= turbo_frame_tag @weather_datum.address do %>
+  <% if @weather_datum.present? %>
+    <p>
+      <strong>Temperature:</strong>
+      <%= @weather_datum.temperature %>
+    </p>
+    <p>
+      <strong>Minimum Temperature:</strong>
+      <%= @weather_datum.minimum_temperature %>
+    </p>
+    <p>
+      <strong>Maximum Temperature</strong>
+      <%= @weather_datum.maximum_temperature %>
+    <p>
+    <p>
+      <strong>Last updated at:</strong>
+      <%= @weather_datum.created_at %>
+    </p>
+    <p>
+      <strong>Pulled from cache:</strong>
+      <%= @pulled_from_cache.to_s.upcase_first %>
+    </p>
+  <% else %>
+    <p>Error on fetching weather data</p>
+  <% end %>
+<% end %>
