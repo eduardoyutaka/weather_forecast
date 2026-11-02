@@ -4,7 +4,6 @@ class AddressesController < ApplicationController
   def search
     @address = Address.find_by(postal_code: params[:postal_code])
     if @address.present?
-        p "DEBUG: FOUND"
         redirect_to @address
     else
       uri = URI("https://api.zippopotam.us/us/#{params[:postal_code]}")
