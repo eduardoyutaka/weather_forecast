@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root "weather_datum#index"
   get "/search", to: "addresses#search"
   resources :addresses, only: [:show]
-  resources :weather_datum do
+  resources :weather_data do
     collection do
       get :current
     end
