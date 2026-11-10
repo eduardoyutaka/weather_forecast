@@ -1,17 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  city: MyString
-  state: MyString
-  country_code: MyString
-  post_code: MyString
-  latitude: 9.99
-  longitude: 9.99
-
-two:
-  city: MyString
-  state: MyString
-  country_code: MyString
-  post_code: MyString
-  latitude: 9.99
-  longitude: 9.99
+beverly_hills:
+  city: Beverly Hills
+  state: California
+  country_code: US
+  postal_code: "90210"
+  latitude: 34.0901
+  longitude: -118.4065
