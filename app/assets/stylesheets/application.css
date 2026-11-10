@@ -8,3 +8,102 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+:root {
+  --color-text: #1f2328;
+  --color-muted: #59636e;
+  --color-border: #d1d9e0;
+  --color-alert-bg: #ffebe9;
+  --color-alert-text: #82071e;
+  --color-live: #1a7f37;
+  --color-cached: #9a6700;
+
+  font-family: system-ui, sans-serif;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.notice,
+.alert {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.alert {
+  background: var(--color-alert-bg);
+  color: var(--color-alert-text);
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.address-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.address-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.25rem 1rem;
+  margin: 0;
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.forecast {
+  display: block;
+  min-width: 16rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.temperature {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 0.125rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.badge--live {
+  color: var(--color-live);
+}
+
+.badge--cached {
+  color: var(--color-cached);
+}

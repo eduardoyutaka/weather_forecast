@@ -1,31 +1,19 @@
-<h1>Address</h1>
-<div style="display: flex; gap: 36px;">
-  <div>
-    <p>
-      <strong>City:</strong>
-      <%= @address.city %>
-    </p>
-    <p>
-      <strong>State:</strong>
-      <%= @address.state %>
-    </p>
-    <p>
-      <strong>Country Code:</strong>
-      <%= @address.country_code %>
-    </p>
-    <p>
-      <strong>Postal Code:</strong>
-      <%= @address.postal_code %>
-    </p>
-    <p>
-      <strong>Latitude:</strong>
-      <%= @address.latitude %>
-    </p>
-    <p>
-      <strong>Longitude:</strong>
-      <%= @address.longitude %>
-    </p>
-  </div>
-  <%= turbo_frame_tag @address, src: current_weather_data_path(address_id: @address.id) %>
+<% content_for :title, "#{@address.city}, #{@address.state} #{@address.postal_code} · Weather Forecast" %>
+
+<h1><%= @address.city %>, <%= @address.state %> <%= @address.postal_code %></h1>
+
+<div class="address-page">
+  <dl class="address-details">
+    <dt>City</dt><dd><%= @address.city %></dd>
+    <dt>State</dt><dd><%= @address.state %></dd>
+    <dt>Country</dt><dd><%= @address.country_code %></dd>
+    <dt>ZIP code</dt><dd><%= @address.postal_code %></dd>
+    <dt>Coordinates</dt><dd><%= @address.latitude %>, <%= @address.longitude %></dd>
+  </dl>
+
+  <%= turbo_frame_tag "forecast", src: address_forecast_path(@address), class: "forecast" do %>
+    <p class="muted" aria-busy="true">Loading forecast…</p>
+  <% end %>
 </div>
-<%= link_to "Back to search", root_path %>
+
+<%= link_to "← New search", root_path %>

@@ -1,0 +1,10 @@
+<h1>Weather Forecast</h1>
+<p class="muted">Enter a US ZIP code to see the current weather.</p>
+
+<%= form_with url: addresses_path, class: "search-form" do |form| %>
+  <%= form.label :postal_code, "ZIP code" %>
+  <%= form.text_field :postal_code, value: params[:postal_code].presence,
+        required: true, autofocus: true, autocomplete: "postal-code", inputmode: "numeric",
+        maxlength: 10, placeholder: "e.g. 10001" %>
+  <%= form.submit "Get forecast" %>
+<% end %>

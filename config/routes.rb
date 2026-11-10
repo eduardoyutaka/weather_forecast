@@ -9,13 +9,10 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  root "weather_data#index"
-  get "/search", to: "addresses#search"
-  resources :addresses, only: [:show]
-  resources :weather_data do
-    collection do
-      get :current
-    end
+  root "addresses#new"
+
+  # /addresses/10001 and /addresses/10001/forecast
+  resources :addresses, only: %i[new create show], param: :postal_code do
+    resource :forecast, only: :show
   end
 end

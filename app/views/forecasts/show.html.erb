@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "forecast", class: "forecast" do %>
+  <% forecast = @result.forecast %>
+  <h2>Current weather <%= cache_status_badge(@result) %></h2>
+
+  <p class="temperature"><%= fahrenheit(forecast.temperature) %></p>
+  <% if forecast.description.present? %>
+    <p><%= forecast.description.upcase_first %></p>
+  <% end %>
+  <p>High <%= fahrenheit(forecast.temperature_max) %> · Low <%= fahrenheit(forecast.temperature_min) %></p>
+
+  <p class="muted">
+    Observed <%= time_tag forecast.observed_at, "#{time_ago_in_words(forecast.observed_at)} ago" %>,
+    fetched <%= time_tag forecast.fetched_at, "#{time_ago_in_words(forecast.fetched_at)} ago" %>.
+  </p>
+<% end %>
